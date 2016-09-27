@@ -1,0 +1,31 @@
+<div class = "container" ng-controller="AppCtrl">
+    <table class ="table">
+      <thead>
+        <tr>
+          <th><center>Nome</center></th>
+          <th><center>Banda</center></th>
+          <th><center>Gênero</center></th>
+          <th><center>Adicionar/Remover</center></th>
+          <th><center>Editar/Atualizar</center></th>
+        </tr>
+     </thead>
+      <tbody>
+        <tr>
+        <!--Conexao com o controlador-->
+        <td><input class="form-control" ng-model="disco.nome"></td>
+        <td><input class="form-control" ng-model="disco.banda"></td>
+        <td><input class="form-control" ng-model="disco.genero"></td>
+        <!--Botoes de evento-->
+        <td><center><button class="btn btn-primary" ng-click="adddisco()">Adicionar disco</button></center></td>
+        <td><center><button class="btn btn-info" ng-click="update()">Atualizar</button></center></td>
+        </tr>
+        <tr ng-repeat="disco in listadiscos | filter: disco | orderBy: 'nome'">
+          <td>{{disco.nome}}</td>
+          <td>{{disco.banda}}</td>
+          <td>{{disco.genero}}</td>
+          <td><center><button class="btn btn-danger" ng-click="remove(disco._id)">Remover disco</button></center></td>
+          <td><center><button class="btn btn-warning" ng-click="edit(disco._id)">Editar</button></center></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
